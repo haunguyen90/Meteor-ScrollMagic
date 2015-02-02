@@ -1,8 +1,9 @@
-#ScrollMagic <a href='https://github.com/janpaepke/ScrollMagic/blob/master/CHANGELOG.md' class='version' title='Whats New?'>v1.1.2</a> [![Build Status](https://api.travis-ci.org/janpaepke/ScrollMagic.svg?branch=master)](https://travis-ci.org/janpaepke/ScrollMagic) 
+
+#ScrollMagic <a href='https://github.com/janpaepke/ScrollMagic/blob/master/CHANGELOG.md' class='version' title='Whats New?'>v1.3.0</a> [![Build Status](https://api.travis-ci.org/janpaepke/ScrollMagic.svg?branch=master)](https://travis-ci.org/janpaepke/ScrollMagic) 
 
 ###The jQuery plugin for magical scroll interactions. [![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif "Shut up and take my money!")](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8BJC8B58XHKLL "Shut up and take my money!")
 
-Hi, I am Andrew Lisowski and I ported this plugin to meteor. Mnay thanks to all the original author.
+Hi, I am Andrew Lisowski and I ported this plugin to meteor. Many thanks to all the original author.
 
 ScrollMagic is a jQuery plugin which essentially lets you use the scrollbar like a playback scrub control.  
 It's the plugin for you, if you want to ...
@@ -40,34 +41,55 @@ ScrollMagic takes an object oriented approach using a controller for each scroll
 If the above points are not crucial for you and you are just looking for a simple solution to implement basic css animations I would strongly recommend taking a look at the awesome [skrollr](http://prinzhorn.github.io/skrollr/) project. It almost solely relys on element attributes and thus requires minimal to no javascript knowledge.
 
 ## Installation
+Aside from [jQuery](http://jquery.com/) make sure you have loaded the [Greensock Animation Plattform (TweenMax)](http://www.greensock.com/gsap-js/).  
+To use ScrollMagic in your project simply include the plugin js file in the head section of your HTML file:
+```html
+<script type="text/javascript" src="js/jquery.scrollmagic.js"></script>
 ```
-meteor add hipstersmoothie:scrollmagic
+
+For deployment use the minified version __instead__:
+```html
+<script type="text/javascript" src="js/jquery.scrollmagic.min.js"></script>
 ```
+_**NOTE:** The logging feature is removed in the minified version for obvious file size considerations._
+
+To have access to the debugging extension during development, include this file __additionally__:
+```html
+<script type="text/javascript" src="js/jquery.scrollmagic.debug.js"></script>
+```
+You can remove the debugging extension for actual deployment.
 
 ## Usage
 The basic ScrollMagic design pattern is one controller, which has several scenes attached.  
 Each scene has a definite start and end position and defines what happens when the container is scrolled to the specific offset.
 ```javascript
+/*
+	Basic workflow example
+*/
+
 // init controller
 var controller = new ScrollMagic();
 
-// assign handler "scene" and add it to Controller
+// assign handler "scene" and add it to controller
 var scene = new ScrollScene({duration: 100})
-				.setPin("#my-sticky-element")	// pins the element for a scroll distance of 100px
-				.addTo(controller);
+				.setPin("#my-sticky-element") // pins the element for a scroll distance of 100px
+				.addTo(controller); // add scene to controller
 
-// add multiple scenes at once
-var scene2;
+// adding multiple scenes at once
+var scene2 = new ScrollScene();
+var scene3;
 controller.addScene([
-	scene, // add above defined scene
-	scene2 = new ScrollScene({duration: 200}), // add scene and assign handler "scene2"
+	scene2,
+	scene3 = new ScrollScene({duration: 200}), // add scene and assign handler "scene2"
 	new ScrollScene({offset: 20}) // add anonymous scene
 ]);
 ```
-Check out the [examples](http://janpaepke.github.com/ScrollMagic/examples/index.html) or the [documentation](http://janpaepke.github.com/ScrollMagic/docs/index.html) for full reference.
 ##Help
-To get help please start by reading the [support guidelines](https://github.com/janpaepke/ScrollMagic/blob/master/CONTRIBUTING.md).  
-If you still can't figure it out, please post your questions in the [project's issues section](https://github.com/janpaepke/ScrollMagic/issues).
+To get started check out the available learning resources [in the wiki section](https://github.com/janpaepke/ScrollMagic/wiki).  
+Be sure to have a look at the [examples](http://janpaepke.github.com/ScrollMagic/examples/index.html) to get source code pointers and make use of the [documentation](http://janpaepke.github.com/ScrollMagic/docs/index.html) for a complete reference.
+
+If you're having trouble using ScrollMagic please read the [support guidelines](https://github.com/janpaepke/ScrollMagic/blob/master/CONTRIBUTING.md).  
+Should you still be unable to figure it out, feel free to post your questions in the [project's issues section](https://github.com/janpaepke/ScrollMagic/issues).
 
 ##Browser Support
 
@@ -77,7 +99,7 @@ Firefox 26+, Chrome 30+, Safari 6+, Opera 19+, IE 9+
 ##About the Author
 
 I am a freelance Art Director based in Lausanne, Switzerland.  
-I started this project to intensify my knowledge of javascript.
+I started this project to deepen my understanding of javascript (which it has).
 
 [Check out my website](http://www.janpaepke.de) or [Follow me on Twitter](http://twitter.com/janpaepke)
 
