@@ -1,7 +1,7 @@
 Package.describe({
   name : "hipstersmoothie:scrollmagic",
   summary: "ScrollMagic repackaged for Meteor.",
-  version: "0.0.2",
+  version: "0.0.3",
   git: " https://github.com/hipstersmoothie/Meteor-ScrollMagic"
 });
 
