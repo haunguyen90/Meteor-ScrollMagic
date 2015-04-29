@@ -80,7 +80,7 @@ var controller = new ScrollMagic.Controller({addIndicators: true});
 new ScrollMagic.Scene()
                .addTo(controller);
 ```
-To learn more about the ScrollMagic debugging, please [read here](http://scrollmagic.io/docs/debug.addIndicators.html#Scene.addIndicators).
+To learn more about ScrollMagic debugging, please [read here](http://scrollmagic.io/docs/debug.addIndicators.html).
 
 ## Help
 
