@@ -46,71 +46,6 @@ ScrollMagic was developed with these principles in mind:
 ScrollMagic takes an object oriented approach using a controller for each scroll container and attaching multiple scenes defining what should happen at what part of the page. While this offers a great deal of control, it might be a little confusing, especially if you're just starting out with javascript.  
 If the above points are not crucial for you and you are just looking for a simple solution to implement css animations I would strongly recommend taking a look at the awesome [skrollr](http://prinzhorn.github.io/skrollr/) project. It almost solely relies on element attributes and thus requires minimal to no javascript knowledge.
 
-## Availability
-
-To get your copy of ScrollMagic you have the choice between four options:
-  
-__Option 1: GitHub__  
-Download a zip file containing the source code, demo page, all examples and documentation from the [GitHub releases page](https://github.com/janpaepke/ScrollMagic/releases) or clone the package to your machine using the git command line interface:
-
-```bash
-git clone git://github.com/janpaepke/ScrollMagic.git
-```
-
-__Option 2: Bower__  
-ScrollMagic is also [available on bower](http://bower.io/search/?q=scrollmagic) and will only install the necessary source code, ignoring all example and documentation files.  
-Please mind that since they are not core dependencies, you will have to add frameworks like GSAP, jQuery or Velocity manually, should you choose to use them.
-
-```bash
-bower install scrollmagic
-```
-
-__Option 3: npm__  
-If you prefer the [node package manager](https://www.npmjs.com/package/scrollmagic), feel free to use it.  
-Keep in mind that like with bower non-crucial files will be ignored (see above).
-
-```bash
-npm install scrollmagic
-```
-
-__Option 4: CDN__  
-If you don't want to host ScrollMagic yourself, you can include it from [cdnjs](https://cdnjs.com/libraries/scrollmagic):
-
-```
-http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/ScrollMagic.min.js
-```
-
-All plugins and uncompressed files are also available on cdnjs.  
-For example:
-
-```
-http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/debug.addIndicators.js
-http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/debug.addIndicators.min.js
-```
-
-## Installation
-
-Include the __core__ library in your HTML file:
-
-```html
-<script src="js/scrollmagic/uncompressed/ScrollMagic.js"></script>
-```
-And you're ready to go!  
-For deployment use the minified version __instead__:
-
-```html
-<script src="js/scrollmagic/minified/ScrollMagic.min.js"></script>
-```
-_**NOTE:** The logging feature is removed in the minified version due to file size considerations._
-
-To use __plugins__ like the indicators visualization, simply include them additionally to the main library:
-
-```html
-<script src="js/scrollmagic/uncompressed/plugins/debug.addIndicators.js"></script>
-```
-
-To learn how to configure __RequireJS__, when using AMD, please [read here](https://github.com/janpaepke/ScrollMagic/wiki/Getting-Started-:-Using-AMD).
-
 ## Usage
 
 The basic ScrollMagic design pattern is one controller, which has one or more scenes attached to it.  
@@ -131,6 +66,21 @@ new ScrollMagic.Scene({
 	.addTo(controller); // assign the scene to the controller
 ```
 To learn more about the ScrollMagic code structure, please [read here](https://github.com/janpaepke/ScrollMagic/wiki/Getting-Started-:-How-to-use-ScrollMagic).
+
+## Debug
+
+Debug enables you to add visual indicators to your page, to be able to see exactly when a scene is triggered.
+
+Here's how to activate debugging:
+
+```javascript
+// make a controller and add indicators to all scenes attached
+var controller = new ScrollMagic.Controller({addIndicators: true});
+// this scene will automatically have indicators added to it
+new ScrollMagic.Scene()
+               .addTo(controller);
+```
+To learn more about the ScrollMagic debugging, please [read here](http://scrollmagic.io/docs/debug.addIndicators.html#Scene.addIndicators).
 
 ## Help
 
