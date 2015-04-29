@@ -1,7 +1,7 @@
 Package.describe({
   name : "hipstersmoothie:scrollmagic",
   summary: "ScrollMagic helps you to easily react to the user's current scroll position.",
-  version: "0.0.8",
+  version: "0.0.9",
   git: "https://github.com/hipstersmoothie/Meteor-ScrollMagic"
 });
 
